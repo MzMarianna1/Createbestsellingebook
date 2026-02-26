@@ -61,8 +61,7 @@ export default function ThankYou() {
             
             <div className="space-y-4">
               <a
-                href="/App.tsx"
-                target="_blank"
+                href="#/"
                 className="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow"
               >
                 <div>
@@ -73,8 +72,7 @@ export default function ThankYou() {
               </a>
 
               <a
-                href="/BonusMaterials.tsx"
-                target="_blank"
+                href="#/bonus"
                 className="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow"
               >
                 <div>
@@ -189,7 +187,7 @@ export default function ThankYou() {
             </div>
 
             <a
-              href="/Checkout.tsx?product=coaching"
+              href="#/checkout"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0d9488] font-black text-lg rounded-lg hover:bg-gray-100 transition-colors"
             >
               Book Your Strategy Session
