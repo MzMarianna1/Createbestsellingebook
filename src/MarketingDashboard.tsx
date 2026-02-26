@@ -82,7 +82,7 @@ export default function MarketingDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <a
-                href="/App.tsx"
+                href="#/"
                 className="px-4 py-2 text-sm font-bold text-[#0d9488] hover:text-[#111111] border-2 border-[#0d9488] hover:border-[#111111] rounded transition-colors"
               >
                 View Ebook
@@ -190,19 +190,19 @@ function OverviewTab({ analytics }: { analytics: any }) {
         <h2 className="text-xl font-black text-[#111111] mb-4">QUICK ACTIONS</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <a
-            href="/Quiz.tsx"
+            href="#/quiz"
             className="p-4 border-2 border-[#0d9488] rounded-lg hover:bg-[#0d9488] hover:text-white transition-colors text-center font-bold"
           >
             📝 View Quiz Page
           </a>
           <a
-            href="/SalesPage.tsx"
+            href="#/sales"
             className="p-4 border-2 border-[#0d9488] rounded-lg hover:bg-[#0d9488] hover:text-white transition-colors text-center font-bold"
           >
             💰 View Sales Page
           </a>
           <a
-            href="/Checkout.tsx"
+            href="#/checkout"
             className="p-4 border-2 border-[#0d9488] rounded-lg hover:bg-[#0d9488] hover:text-white transition-colors text-center font-bold"
           >
             🛒 View Checkout
@@ -316,7 +316,7 @@ function EmailTab() {
           <li><strong>1.</strong> Go to Supabase Dashboard → Edge Functions → Secrets</li>
           <li><strong>2.</strong> Add secret: <code className="bg-white px-2 py-1 rounded">RESEND_API_KEY</code> with your Resend API key</li>
           <li><strong>3.</strong> Update FROM_EMAIL in <code className="bg-white px-2 py-1 rounded">/supabase/functions/server/resend.tsx</code></li>
-          <li><strong>4.</strong> Test by completing the quiz at <a href="/Quiz.tsx" className="text-[#0d9488] font-bold">/Quiz.tsx</a></li>
+          <li><strong>4.</strong> Test by completing the quiz at <a href="#/quiz" className="text-[#0d9488] font-bold">#/quiz</a></li>
         </ol>
       </div>
     </div>

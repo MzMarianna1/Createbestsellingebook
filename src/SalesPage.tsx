@@ -242,7 +242,7 @@ export default function SalesPage() {
             </div>
 
             <a
-              href="/Checkout.tsx"
+              href="#/checkout"
               className="w-full py-4 bg-[#0d9488] text-white font-black text-lg rounded-lg hover:bg-[#0891b2] transition-colors flex items-center justify-center gap-2 mb-6"
             >
               <Lock className="w-5 h-5" />

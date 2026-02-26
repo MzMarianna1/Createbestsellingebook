@@ -90,8 +90,8 @@ export default function Checkout() {
           customerId: customerResult.customer.id,
           customerEmail: email,
           productType: productType,
-          successUrl: `${window.location.origin}/ThankYou.tsx`,
-          cancelUrl: `${window.location.origin}/Checkout.tsx`,
+          successUrl: `${window.location.origin}/#/thank-you`,
+          cancelUrl: `${window.location.origin}/#/checkout`,
         }),
       });
 
