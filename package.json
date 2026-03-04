@@ -57,6 +57,7 @@
       },
       "scripts": {
           "dev": "vite",
-          "build": "vite build"
+          "build": "vite build",
+          "generate:social": "node scripts/generate-social-pack.mjs"
       }
   }

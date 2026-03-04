@@ -29,12 +29,6 @@ Edit `src/config.ts`:
 - Add Google Apps Script Web App URL (`GOOGLE_AUTOMATION_CONFIG.webAppUrl`)
 - Add Google Drive + Sheets links for your team
 
-
-### 3b) Configure OpenAI secret correctly
-- If using Supabase AI endpoints, set `OPENAI_API_KEY` in **Supabase Edge Function Secrets**.
-- If using Google Apps Script for AI, set `OPENAI_API_KEY` in **Script Properties**.
-- Never place OpenAI keys in frontend code.
-
 When `SHOPIFY_CONFIG` URLs are set, checkout will redirect directly to Shopify.
 If they are not set, checkout uses the existing Supabase/Stripe flow.
 
