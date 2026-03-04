@@ -10,26 +10,34 @@ export function trackEvent(eventName: string, payload: EventPayload = {}) {
     timestamp: new Date().toISOString(),
   };
 
-  // Local visibility during setup
-  console.log('[trackEvent]', event);
+  if (import.meta.env.DEV) {
+    console.log('[trackEvent]', event);
+  }
 
-  const { webAppUrl } = GOOGLE_AUTOMATION_CONFIG;
+  const { webAppUrl, webhookSecret } = GOOGLE_AUTOMATION_CONFIG;
   if (!webAppUrl) return;
+
+  const url = webhookSecret
+    ? `${webAppUrl}?secret=${encodeURIComponent(webhookSecret)}`
+    : webAppUrl;
 
   const body = JSON.stringify(event);
 
   if (navigator.sendBeacon) {
-    const blob = new Blob([body], { type: 'application/json' });
-    navigator.sendBeacon(webAppUrl, blob);
+    const blob = new Blob([body], { type: 'text/plain' });
+    navigator.sendBeacon(url, blob);
     return;
   }
 
-  void fetch(webAppUrl, {
+  void fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
     body,
     keepalive: true,
   }).catch((error) => {
-    console.warn('Failed to send tracking event', error);
+    if (import.meta.env.DEV) {
+      console.warn('Failed to send tracking event', error);
+    }
   });
 }

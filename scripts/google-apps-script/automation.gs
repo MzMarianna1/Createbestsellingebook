@@ -3,6 +3,8 @@
  *
  * REQUIRED SCRIPT PROPERTIES
  * - LEADS_SHEET_ID: Google Sheet ID used for leads/events/queue/KPI tabs
+ * - WEBHOOK_SECRET: shared secret that callers must send as the `secret` query
+ *   parameter to authenticate POST requests
  * - ADMIN_EMAIL: optional email for daily digest alerts
  *
  * RECOMMENDED SHEET TABS
@@ -18,6 +20,15 @@ function doGet() {
 
 function doPost(e) {
   try {
+    // Authenticate the request using a shared secret stored in Script Properties.
+    const expectedSecret = PropertiesService.getScriptProperties().getProperty('WEBHOOK_SECRET');
+    if (expectedSecret) {
+      const headerSecret = (e && e.parameter && e.parameter.secret) || '';
+      if (headerSecret !== expectedSecret) {
+        return json({ ok: false, error: 'Unauthorized' });
+      }
+    }
+
     const payload = JSON.parse((e && e.postData && e.postData.contents) || '{}');
     const sheetId = getRequiredProperty_('LEADS_SHEET_ID');
     const ss = SpreadsheetApp.openById(sheetId);
@@ -33,10 +44,10 @@ function doPost(e) {
 
     sheet.appendRow([
       new Date(),
-      payload.eventName || 'unknown',
-      safe_(payload, 'payload.email'),
-      safe_(payload, 'payload.name'),
-      payload.page || '',
+      sanitize_(payload.eventName || 'unknown'),
+      sanitize_(safe_(payload, 'payload.email')),
+      sanitize_(safe_(payload, 'payload.name')),
+      sanitize_(payload.page || ''),
       JSON.stringify(payload.payload || {}),
     ]);
 
@@ -141,15 +152,36 @@ function upsertPublishQueue_(ss, payload) {
     ['day', 'platform', 'asset_drive_url', 'caption', 'cta_url', 'publish_datetime', 'status']
   );
 
-  sheet.appendRow([
-    payload.day || '',
-    payload.platform || '',
-    payload.assetDriveUrl || '',
-    payload.caption || '',
-    payload.ctaUrl || '',
-    payload.publishDatetime || '',
-    payload.status || 'draft',
-  ]);
+  const day = sanitize_(payload.day || '');
+  const platform = sanitize_(payload.platform || '');
+  const rowValues = [
+    day,
+    platform,
+    sanitize_(payload.assetDriveUrl || ''),
+    sanitize_(payload.caption || ''),
+    sanitize_(payload.ctaUrl || ''),
+    sanitize_(payload.publishDatetime || ''),
+    sanitize_(payload.status || 'draft'),
+  ];
+
+  // Find an existing row matching day + platform and update it in place.
+  const dataRange = sheet.getDataRange();
+  const values = dataRange.getValues();
+  let targetSheetRow = -1; // 1-based row number in the sheet, or -1 if not found
+
+  // Start from index 1 to skip the header row at index 0.
+  for (let i = 1; i < values.length; i++) {
+    if (String(values[i][0]) === day && String(values[i][1]) === platform) {
+      targetSheetRow = i + 1; // convert 0-based array index to 1-based sheet row
+      break;
+    }
+  }
+
+  if (targetSheetRow !== -1) {
+    sheet.getRange(targetSheetRow, 1, 1, rowValues.length).setValues([rowValues]);
+  } else {
+    sheet.appendRow(rowValues);
+  }
 }
 
 function getOrCreateSheet_(ss, name, headers) {
@@ -168,6 +200,20 @@ function getRequiredProperty_(key) {
 
 function safe_(obj, path) {
   return path.split('.').reduce((acc, key) => (acc && acc[key] !== undefined ? acc[key] : ''), obj);
+}
+
+/**
+ * Prevents spreadsheet formula injection by prefixing strings that start
+ * with a formula trigger character (=, +, -, @) with a single quote.
+ * Google Sheets treats values written via setValues/appendRow as strings,
+ * but this extra guard ensures safety even if that behavior changes.
+ */
+function sanitize_(value) {
+  const str = String(value === null || value === undefined ? '' : value);
+  if (str.match(/^[=+\-@]/)) {
+    return "'" + str;
+  }
+  return str;
 }
 
 function json(data) {

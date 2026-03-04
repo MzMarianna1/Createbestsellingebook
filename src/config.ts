@@ -16,12 +16,11 @@ export const SHOPIFY_CONFIG = {
   coachingCheckoutUrl: 'https://YOUR_SHOP.myshopify.com/cart',
 };
 
-const DEPLOYED_GOOGLE_APPS_SCRIPT_WEBAPP_URL =
-  'https://script.google.com/macros/s/AKfycbwj4BlIoLvRifzsItSAInH_ugcYNDGgKUlO9gYw_f5a6NFgC2K-lIGnrCKdb0WuZIGPXw/exec';
-
 export const GOOGLE_AUTOMATION_CONFIG = {
-  // Verified deployed Apps Script endpoint
-  webAppUrl: DEPLOYED_GOOGLE_APPS_SCRIPT_WEBAPP_URL,
+  // Set VITE_GOOGLE_WEB_APP_URL in your .env file (leave empty to disable tracking)
+  webAppUrl: import.meta.env.VITE_GOOGLE_WEB_APP_URL || '',
+  // Set VITE_WEBHOOK_SECRET to match the WEBHOOK_SECRET Apps Script property
+  webhookSecret: import.meta.env.VITE_WEBHOOK_SECRET || '',
   driveFolderUrl: 'https://drive.google.com/drive/my-drive',
   leadSheetUrl: 'https://docs.google.com/spreadsheets/',
 };

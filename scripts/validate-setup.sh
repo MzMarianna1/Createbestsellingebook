@@ -11,6 +11,6 @@ test -f GOOGLE-SCRIPTS-DRIVE-SETUP.md
 test -f scripts/google-apps-script/automation.gs
 
 echo "[3/3] Checking route references..."
-rg -n "['\"]/((sales|quiz|checkout|thank-you|dashboard|print-version|bonus-materials))['\"]" src/main.tsx >/dev/null
+grep -En "['\"]/((sales|quiz|checkout|thank-you|dashboard|print-version|bonus-materials))['\"]" src/main.tsx >/dev/null
 
 echo "Setup validation passed ✅"

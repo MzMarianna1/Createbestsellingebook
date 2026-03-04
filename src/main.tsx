@@ -8,24 +8,27 @@ import ThankYou from './ThankYou';
 import MarketingDashboard from './MarketingDashboard';
 import PrintVersion from './PrintVersion';
 import BonusMaterials from './BonusMaterials';
+import { APP_ROUTES } from './config';
 
 function resolvePage(pathname: string) {
-  switch (pathname) {
-    case '/quiz':
+  // Normalize: strip trailing slash (except root) to handle /sales/ == /sales
+  const normalized = pathname.length > 1 ? pathname.replace(/\/+$/, '') : pathname;
+  switch (normalized) {
+    case APP_ROUTES.quiz:
       return <Quiz />;
-    case '/sales':
+    case APP_ROUTES.sales:
       return <SalesPage />;
-    case '/checkout':
+    case APP_ROUTES.checkout:
       return <Checkout />;
-    case '/thank-you':
+    case APP_ROUTES.thankYou:
       return <ThankYou />;
-    case '/dashboard':
+    case APP_ROUTES.dashboard:
       return <MarketingDashboard />;
-    case '/print-version':
+    case APP_ROUTES.printVersion:
       return <PrintVersion />;
-    case '/bonus-materials':
+    case APP_ROUTES.bonusMaterials:
       return <BonusMaterials />;
-    case '/':
+    case APP_ROUTES.home:
     default:
       return <App />;
   }

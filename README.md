@@ -24,12 +24,14 @@ npm run build
 4. Build command: `npm run build`
 5. Output directory: `build`
 6. Deploy.
+7. The included `vercel.json` already configures SPA rewrites so deep links (e.g. `/sales`) work correctly.
 
 ### Option B — Netlify
 1. Connect repo in Netlify.
 2. Build command: `npm run build`
 3. Publish directory: `build`
 4. Deploy.
+5. The included `netlify.toml` already configures SPA rewrites so client-side routes don't 404.
 
 ## 3) Connect to Shopify for sales
 

@@ -25,7 +25,14 @@ export default function Checkout() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [productType, setProductType] = useState<'ebook' | 'bundle' | 'coaching'>('ebook');
+
+  function getInitialProduct(): 'ebook' | 'bundle' | 'coaching' {
+    const param = new URLSearchParams(window.location.search).get('product');
+    if (param === 'bundle' || param === 'coaching') return param;
+    return 'ebook';
+  }
+
+  const [productType, setProductType] = useState<'ebook' | 'bundle' | 'coaching'>(getInitialProduct);
 
   const products = {
     ebook: {

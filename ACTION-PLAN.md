@@ -10,12 +10,12 @@ npm run dev
 ```
 
 Open the key pages in your browser and verify each one renders:
-- Ebook: `src/App.tsx`
-- Quiz: `src/Quiz.tsx`
-- Sales page: `src/SalesPage.tsx`
-- Checkout: `src/Checkout.tsx`
-- Thank-you/upsell: `src/ThankYou.tsx`
-- Dashboard/automation: `src/MarketingDashboard.tsx`
+- Ebook: `/`
+- Quiz: `/quiz`
+- Sales page: `/sales`
+- Checkout: `/checkout`
+- Thank-you/upsell: `/thank-you`
+- Dashboard/automation: `/dashboard`
 
 Then run a production check:
 
