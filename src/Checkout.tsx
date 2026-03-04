@@ -4,11 +4,15 @@ import { projectId, publicAnonKey } from './utils/supabase/info';
 
 const API_BASE = `https://${projectId}.supabase.co/functions/v1/make-server-14f75f49`;
 
-export default function Checkout() {
+interface CheckoutProps {
+  initialProduct?: 'ebook' | 'bundle' | 'coaching';
+}
+
+export default function Checkout({ initialProduct = 'ebook' }: CheckoutProps) {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [productType, setProductType] = useState<'ebook' | 'bundle' | 'coaching'>('ebook');
+  const [productType, setProductType] = useState<'ebook' | 'bundle' | 'coaching'>(initialProduct);
 
   const products = {
     ebook: {

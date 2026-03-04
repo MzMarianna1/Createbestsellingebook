@@ -187,7 +187,7 @@ export default function ThankYou() {
             </div>
 
             <a
-              href="#/checkout"
+              href="#/checkout?product=coaching"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0d9488] font-black text-lg rounded-lg hover:bg-gray-100 transition-colors"
             >
               Book Your Strategy Session
