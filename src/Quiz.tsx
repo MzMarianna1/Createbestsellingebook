@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { CheckCircle, ChevronRight, Loader } from 'lucide-react';
 import { projectId, publicAnonKey } from './utils/supabase/info';
+import { APPS_SCRIPT_URL } from './config';
 
 const API_BASE = `https://${projectId}.supabase.co/functions/v1/make-server-14f75f49`;
 
@@ -105,6 +106,12 @@ export default function Quiz() {
       const result = await response.json();
 
       if (result.success) {
+        // Mirror lead to Google Sheets via Apps Script (fire-and-forget)
+        fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, name, source: 'quiz', timestamp: new Date().toISOString() }),
+        }).catch((err) => console.error('[Apps Script] Lead sync failed:', err));
         setSubmitted(true);
       } else {
         alert('Error submitting quiz. Please try again.');

@@ -1,0 +1,6 @@
+node_modules/
+dist/
+build/
+
+# Generated social pack output files
+social-pack-*.json
