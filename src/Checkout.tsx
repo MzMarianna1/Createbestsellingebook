@@ -25,7 +25,7 @@ export default function Checkout() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
-  const [productType, setProductType] = useState<'ebook' | 'bundle' | 'coaching'>('ebook');
+  const [productType, setProductType] = useState<'ebook' | 'bundle' | 'coaching'>(initialProduct);
 
   const products = {
     ebook: {

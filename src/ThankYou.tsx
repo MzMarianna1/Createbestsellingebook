@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import { CheckCircle, Download, Mail, Gift, Users } from 'lucide-react';
 
 export default function ThankYou() {
+  useEffect(() => {
+    localStorage.setItem('purchased', 'true');
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Success Header */}
