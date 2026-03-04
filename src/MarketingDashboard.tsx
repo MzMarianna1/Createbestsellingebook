@@ -82,7 +82,7 @@ export default function MarketingDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <a
-                href="#/"
+                href="#/read"
                 className="px-4 py-2 text-sm font-bold text-[#0d9488] hover:text-[#111111] border-2 border-[#0d9488] hover:border-[#111111] rounded transition-colors"
               >
                 View Ebook

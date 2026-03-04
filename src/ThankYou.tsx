@@ -1,6 +1,10 @@
+import { useEffect } from 'react';
 import { CheckCircle, Download, Mail, Gift, Users } from 'lucide-react';
 
 export default function ThankYou() {
+  useEffect(() => {
+    localStorage.setItem('purchased', 'true');
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       {/* Success Header */}
@@ -61,7 +65,7 @@ export default function ThankYou() {
             
             <div className="space-y-4">
               <a
-                href="#/"
+                href="#/read"
                 className="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow"
               >
                 <div>

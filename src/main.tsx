@@ -51,8 +51,10 @@ function Router() {
       return <BonusMaterials />;
     case "print":
       return <PrintVersion />;
+    case "read":
+      return localStorage.getItem('purchased') === 'true' ? <App /> : <SalesPage />;
     default:
-      return <App />;
+      return <SalesPage />;
   }
 }
 
