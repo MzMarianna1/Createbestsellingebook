@@ -65,7 +65,8 @@ export default function ThankYou() {
             
             <div className="space-y-4">
               <a
-                href="#/read"
+                href="/"
+                target="_blank"
                 className="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow"
               >
                 <div>
@@ -76,7 +77,8 @@ export default function ThankYou() {
               </a>
 
               <a
-                href="#/bonus"
+                href="/bonus-materials"
+                target="_blank"
                 className="flex items-center justify-between p-4 bg-white rounded-lg hover:shadow-md transition-shadow"
               >
                 <div>
@@ -191,7 +193,7 @@ export default function ThankYou() {
             </div>
 
             <a
-              href="#/checkout?product=coaching"
+              href="/checkout?product=coaching"
               className="inline-flex items-center gap-2 px-8 py-4 bg-white text-[#0d9488] font-black text-lg rounded-lg hover:bg-gray-100 transition-colors"
             >
               Book Your Strategy Session

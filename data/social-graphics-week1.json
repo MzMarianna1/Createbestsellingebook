@@ -1,0 +1,110 @@
+[
+  {
+    "day": 1,
+    "platform": "Instagram/Facebook",
+    "format": "Carousel (10 slides)",
+    "hook": "3 Signs Homework Is Traumatizing Your Child",
+    "objective": "Problem agitation + quiz CTA",
+    "cta": "Take the quiz",
+    "route": "/quiz",
+    "visualDirection": "Hyper-real parent/child desk scene at dusk, emotional but hopeful, subtle neon cyan-magenta edge lights, clean white space for text",
+    "captionStyle": "Standard",
+    "caption": "3 Signs Homework Is Traumatizing Your Child\n\nProblem agitation + quiz CTA\n\nCTA: Take the quiz (/quiz)"
+  },
+  {
+    "day": 2,
+    "platform": "Instagram Story/TikTok",
+    "format": "Talking head + subtitle card",
+    "hook": "From 2 hours of screaming to 30 minutes calm",
+    "objective": "Story proof + sales CTA",
+    "cta": "Get the guide",
+    "route": "/sales",
+    "visualDirection": "Warm realistic close-up portrait, Pixar-like cinematic key light, child homework setup in blurred background, confident expression",
+    "captionStyle": "Standard",
+    "caption": "From 2 hours of screaming to 30 minutes calm\n\nStory proof + sales CTA\n\nCTA: Get the guide (/sales)"
+  },
+  {
+    "day": 3,
+    "platform": "Facebook Groups",
+    "format": "Text card + supporting image",
+    "hook": "Does your child shut down when homework starts?",
+    "objective": "Engagement + comments",
+    "cta": "Comment for quiz link",
+    "route": "/quiz",
+    "visualDirection": "Real living room scene, parent kneeling at child level, emotional trust moment, clean cyberpunk accent stickers",
+    "captionStyle": "Standard",
+    "caption": "Does your child shut down when homework starts?\n\nEngagement + comments\n\nCTA: Comment for quiz link (/quiz)"
+  },
+  {
+    "day": 4,
+    "platform": "Instagram Reel/TikTok",
+    "format": "Myth-busting overlay cards",
+    "hook": "Homework myths that make it worse",
+    "objective": "Education + authority",
+    "cta": "Learn the protocol",
+    "route": "/sales",
+    "visualDirection": "High-contrast studio look, modern educator pose, floating card UI style in neon cyan/violet, no artificial artifacts",
+    "captionStyle": "Standard",
+    "caption": "Homework myths that make it worse\n\nEducation + authority\n\nCTA: Learn the protocol (/sales)"
+  },
+  {
+    "day": 5,
+    "platform": "Instagram/Facebook",
+    "format": "Single post + lead magnet",
+    "hook": "Free Homework Resistance Decoder",
+    "objective": "Lead capture",
+    "cta": "Download now",
+    "route": "/quiz",
+    "visualDirection": "Tablet mockup with decoder checklist, realistic hand and paper textures, energetic child-friendly colors",
+    "captionStyle": "Standard",
+    "caption": "Free Homework Resistance Decoder\n\nLead capture\n\nCTA: Download now (/quiz)"
+  },
+  {
+    "day": 6,
+    "platform": "Instagram Stories",
+    "format": "10-frame personal story set",
+    "hook": "Why I wrote Stop Homework Battles",
+    "objective": "Founder story trust",
+    "cta": "Vote in poll + visit link",
+    "route": "/sales",
+    "visualDirection": "Documentary-style photo set, natural skin tones, subtle cyberpunk gradient transitions",
+    "captionStyle": "Standard",
+    "caption": "Why I wrote Stop Homework Battles\n\nFounder story trust\n\nCTA: Vote in poll + visit link (/sales)"
+  },
+  {
+    "day": 7,
+    "platform": "Instagram/Facebook/Pinterest",
+    "format": "Results testimonial graphic",
+    "hook": "Night one results: fewer tears, faster homework",
+    "objective": "Social proof",
+    "cta": "Start today",
+    "route": "/checkout",
+    "visualDirection": "Split-screen before/after mood visual, realistic family emotion arc, premium typography",
+    "captionStyle": "Standard",
+    "caption": "Night one results: fewer tears, faster homework\n\nSocial proof\n\nCTA: Start today (/checkout)"
+  },
+  {
+    "day": 8,
+    "platform": "Instagram Reels",
+    "format": "Reel cover + caption",
+    "hook": "The Problem/Solution",
+    "objective": "Save-heavy content that proves value to parents",
+    "cta": "Secure the contract here",
+    "route": "/sales",
+    "visualDirection": "Hyper-real middle-school gamer at desk, tactical terminal UI overlay, Pixar-like cinematic lighting, neon cyan/magenta accents on interface only, strong emotional transformation",
+    "captionStyle": "Problem/Solution (Best for Reels)",
+    "caption": "\"I'm bored.\" \ud83d\ude44 The two words every parent hates during math hour.\n\nWe fixed it. \ud83d\udee0\ufe0f\n\nWelcome to the NIL Agent Terminal: Probability Edition.\n\u2705 Theoretical vs. Experimental Logic\n\u2705 The Law of Large Numbers\n\u2705 Real-world Athlete Data\n\nWe turn \"boring\" probability into a 55-minute race against the clock. \u23f1\ufe0f\n\nALGO HACK: Tap the \"Save\" \ud83d\udea9 icon so you don't lose this screen-time win for your middle schooler!\n\n\ud83d\ude80 Secure the contract here: [Link in Bio]\n\n#ParentingHacks #MathIsFun #OutschoolClasses #MiddleSchoolTeacher #LogicPuzzles #GamerMath"
+  },
+  {
+    "day": 9,
+    "platform": "Instagram Stories / Quick Posts",
+    "format": "Story sequence + quick caption",
+    "hook": "Short & Punchy",
+    "objective": "High click-through rate",
+    "cta": "Comment MISSION for DM link",
+    "route": "/quiz",
+    "visualDirection": "Cyberpunk mission briefing card, realistic student character, bold typography, high contrast, playful detective/gaming vibe for ages 9\u201315",
+    "captionStyle": "Short & Punchy (Best for Stories)",
+    "caption": "CAN YOU CRACK THE CODE? \ud83d\udd10\n\nAgent Zion\u2019s 2nd-semester contracts are FROZEN. \u2744\ufe0f Only a master of probability can unlock the terminal.\n\nMission Details:\n\ud83d\udc64 Ages 9\u201315\n\u23f0 55 Minutes\n\ud83e\udde0 High-Level Data & Logic\n\nDoes your student have what it takes to be a NIL Agent? \ud83d\udd75\ufe0f\u200d\u2640\ufe0f\n\nComment \"MISSION\" and I\u2019ll DM you the direct invite link! \ud83d\udce9\n\n#STEM #MathGames #CriticalThinking #Outschool #EscapeRoom #AgentZion"
+  }
+]

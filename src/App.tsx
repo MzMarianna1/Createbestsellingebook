@@ -1794,7 +1794,8 @@ export default function App() {
           
           <div className="flex items-center gap-4">
             <a
-              href="#/print"
+              href="/print-version"
+              target="_blank"
               className="px-4 py-2 text-sm font-bold bg-[#0d9488] text-white hover:bg-[#0d9488]/90 border-2 border-[#0d9488] rounded transition-colors flex items-center gap-2"
               title="Mobile-friendly PDF export"
             >
@@ -1803,7 +1804,8 @@ export default function App() {
             </a>
             
             <a
-              href="#/bonus"
+              href="/bonus-materials"
+              target="_blank"
               className="px-4 py-2 text-sm font-bold text-[#0d9488] hover:text-[#111111] border-2 border-[#0d9488] hover:border-[#111111] rounded transition-colors flex items-center gap-2"
             >
               <Gift className="w-4 h-4" />

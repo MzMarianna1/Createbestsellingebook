@@ -1,14 +1,27 @@
 import { useState } from 'react';
 import { Lock, Check, Loader, CreditCard, ShieldCheck } from 'lucide-react';
 import { projectId, publicAnonKey } from './utils/supabase/info';
+import { trackEvent } from './utils/tracking';
+import { SHOPIFY_CONFIG } from './config';
 
 const API_BASE = `https://${projectId}.supabase.co/functions/v1/make-server-14f75f49`;
 
-interface CheckoutProps {
-  initialProduct?: 'ebook' | 'bundle' | 'coaching';
+function getShopifyCheckoutUrl(productType: 'ebook' | 'bundle' | 'coaching') {
+  const map = {
+    ebook: SHOPIFY_CONFIG.ebookCheckoutUrl,
+    bundle: SHOPIFY_CONFIG.bundleCheckoutUrl,
+    coaching: SHOPIFY_CONFIG.coachingCheckoutUrl,
+  } as const;
+
+  const selectedUrl = map[productType];
+  if (!selectedUrl || selectedUrl.includes('YOUR_SHOP.myshopify.com')) {
+    return null;
+  }
+
+  return selectedUrl;
 }
 
-export default function Checkout({ initialProduct = 'ebook' }: CheckoutProps) {
+export default function Checkout() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(false);
@@ -67,6 +80,13 @@ export default function Checkout({ initialProduct = 'ebook' }: CheckoutProps) {
     setLoading(true);
 
     try {
+      const shopifyCheckoutUrl = getShopifyCheckoutUrl(productType);
+      if (shopifyCheckoutUrl) {
+        trackEvent('checkout_started_shopify', { productType, email });
+        window.location.href = shopifyCheckoutUrl;
+        return;
+      }
+
       // Create customer first
       const customerResponse = await fetch(`${API_BASE}/customers`, {
         method: 'POST',
@@ -94,20 +114,21 @@ export default function Checkout({ initialProduct = 'ebook' }: CheckoutProps) {
           customerId: customerResult.customer.id,
           customerEmail: email,
           productType: productType,
-          successUrl: `${window.location.origin}/#/thank-you`,
-          cancelUrl: `${window.location.origin}/#/checkout`,
+          successUrl: `${window.location.origin}/thank-you`,
+          cancelUrl: `${window.location.origin}/checkout`,
         }),
       });
 
       const checkoutResult = await checkoutResponse.json();
 
       if (checkoutResult.success && checkoutResult.url) {
-        // Redirect to Stripe checkout
+        trackEvent('checkout_started', { productType, email });
         window.location.href = checkoutResult.url;
       } else {
         throw new Error('Failed to create checkout session');
       }
     } catch (error) {
+      trackEvent('checkout_error', { productType, email });
       console.error('Checkout error:', error);
       alert('Error processing checkout. Please try again or contact support.');
     } finally {
