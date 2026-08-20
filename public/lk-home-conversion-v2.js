@@ -135,7 +135,9 @@
     benefits.id = 'lk-assessment-benefits-v3';
     benefits.setAttribute('aria-label', 'What the assessment includes');
     benefits.innerHTML = '<h3>Your $60 Learning Path includes</h3><ul><li>A live K-8 skills assessment</li><li>A personalized priority map</li><li>Practical next steps you can use right away</li><li>Your plan to keep, even if you do not enroll</li></ul><p>Clear answers. No pressure.</p>';
-    container.appendChild(benefits);
+    const formCard = container.querySelector('#comp-msij9nuo');
+    if (formCard) container.insertBefore(benefits, formCard);
+    else container.appendChild(benefits);
   };
 
   const buildStack = () => {
