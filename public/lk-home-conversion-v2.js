@@ -108,6 +108,8 @@
     if (event) event.preventDefault();
     const target = findAssessment();
     if (!target) return;
+    const sticky = document.getElementById('lk-sticky-cta-v3');
+    if (sticky) sticky.classList.remove('lk-sticky-visible');
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     window.setTimeout(() => {
       const field = target.querySelector('input,select,textarea,button');
@@ -197,7 +199,8 @@
     let ticking = false;
     const updateSticky = () => {
       if (!sticky.isConnected) return;
-      const assessmentBox = assessment.getBoundingClientRect();
+      const currentAssessment = findAssessment() || assessment;
+      const assessmentBox = currentAssessment.getBoundingClientRect();
       const assessmentVisible = assessmentBox.top < window.innerHeight && assessmentBox.bottom > 0;
       sticky.classList.toggle('lk-sticky-visible', window.scrollY > 620 && !assessmentVisible);
       ticking = false;
